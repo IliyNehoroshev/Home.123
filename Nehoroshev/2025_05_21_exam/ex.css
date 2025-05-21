@@ -1,0 +1,50 @@
+table{
+    border: 3px;
+    border-color: rgb(75, 75, 202);
+    border-style: solid;
+    background-color: rgb(215, 252, 255);
+    width: 1000px;
+    height: 700px;
+}
+th{
+    width: 1000px;
+    height: 200px;
+}
+td{
+    border: 2px;
+    border-color: rgb(208, 210, 238);
+    border-style: solid;
+}
+
+#answer1{
+    accent-color: rgb(55, 189, 166);
+}
+#answer2{
+    accent-color: rgb(205, 223, 51);
+}
+#answer3{
+    accent-color: rgb(202, 66, 73);
+}
+
+#header_img {
+    width: 1000px;
+    height: 200px;
+}
+
+#tdh2{
+    color: rgb(39, 39, 151);
+    font-style: oblique;
+    text-align: center;
+    font-size: 3em;
+    font-weight: bold;
+}
+#tdh3{
+    text-align: end;
+}
+#tdh4{
+    font-weight: bold;
+}
+#tdh5{
+    font-weight: bolder;
+    color: red;
+}

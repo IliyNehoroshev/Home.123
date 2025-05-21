@@ -1,0 +1,61 @@
+<!--
+таблица. Сверху в таблице узкая картинка в ячейке
+На второй строке - заголовок "Лыжные соревнования, 23 мая 2025"
+Выбор из 3 дистанций: 5 км, 15 км, 40 км. Выбор - как хотите - кружочками или выпадающим списком.
+Если кружочками, то строки рядом с ними должны переключать кружочек
+Фамилия и имя участника. Внутри полей ввода должно быть сереньким написано "Фамилия", "Имя"
+Возраст - в специальном поле ввода. Можно заменить на дату рождения
+Указать предыдущий рекорд на дистанции в виде: ЧЧ:ММ-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exam training</title>
+    <link rel="stylesheet" href="ex.css">
+</head>
+<body>
+    <table>
+        <tr>
+            <th colspan='2'><img src='img/exa2.jpg' id="header_img"></th>
+        </tr>
+        <tr>
+            <td colspan="2" id="tdh2">Лыжные соревнования, 23 мая 2025</td>
+        </tr>
+        <tr>
+            <td id="tdh4">Выберите одну из дистанций</td>
+            <td>
+                <label for="answer1">5 km</label>
+                <input id="answer1" type="radio" name="radiobtn">
+                <label for="answer2">15 km</label>
+                <input id="answer2" type="radio" name="radiobtn">
+                <label for="answer3">40 km</label>
+                <input id="answer3" type="radio" name="radiobtn"></td>
+        </tr>
+        <tr>
+            <td id="tdh4">Введите Фамилию</td>
+            <td><input type='text'placeholder='Иванов'></td>
+        </tr>
+        <tr>
+            <td id="tdh4">Введите Имя</td>
+            <td><input type='text'placeholder='Иван'></td>
+        </tr>
+        <tr>
+            <td id="tdh4">Введите дату рождения</td>
+            <td><input type="date"></td>
+        </tr>
+        <tr>
+            <td id="tdh4">Введите предыдущий рекорд</td>
+            <td><input type="time"></td>
+        </tr>
+        <tr>
+            <td id="tdh5"><label for="a">Я согласен с правилами</label></td>
+            <td><input id="a" type="checkbox" name="checkbox1"></td>
+        </tr>
+        <tr>
+            <td colspan="2" id="tdh3"><a href="https://xn----8sbgseichghzb.xn--p1ai/">Ссылка на наш сайт</a></td>
+        </tr>
+    </table>
+</body>
+</html>
