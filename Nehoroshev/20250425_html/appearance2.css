@@ -1,0 +1,24 @@
+table {
+    border: 3pc;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    width: 500px;
+    height: 500px;
+    border-style: double
+}
+
+td {
+    border: 3pc;
+    border-style: solid;
+    border-color: rgb(51, 255, 0);
+    width: 30px;
+    height: 30px;
+    border-style: double
+}
+td {
+    border: 1px;
+    border-style: solid;
+    border-color: rgb(15, 69, 194);
+    width: 10px;
+    height: 10px;
+}

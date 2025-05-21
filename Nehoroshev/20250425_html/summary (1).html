@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конспект урока 2</title>
+</head>
+<body>
+    <h1>Конспект урока №2</h1>
+    <h2>CSS</h2>
+    <p>Для отображения элементов можно использовать таблицу стилей CSS. Таблица стилей состоит из селекторов и правил. Селекторы:
+        <ul>
+            <li>tag-name (имя тэга)</li>
+            <li>.className (имя класса)</li>
+            <li>#id (идентификатор, уникальное название)</li>
+        </ul>
+    </p>
+    <pre>table {
+        border: 10px;
+        border-color: black;
+        width: 400px;
+        height: 400px;
+        border-style:groove;
+    }
+    td {
+        border: 1px;
+        border-style: solid;
+        border-color: black;
+    }
+    .unknown {
+        background-color: rgb(213, 164, 157);
+    }
+    .known {
+        background-color: aquamarine;
+    }</pre>
+    <p>В примере выше: table, td - имена тэгов, unknown, known - имена классов</p>
+    <p>В фигурных скобках - правила. Пары "свойство-значение", разделённые двоеточием. Между правилами пишется точка с запятой.</p>
+    <p>Примеры правил: background-color - цвет фона. border - рамка. width, height - ширина и высота</p>
+<h2>Как добавить таблицу стилей?</h2>
+<ol>
+    <li>Создать файл appearance.css (или другое название)</li>
+    <li>Написать в нём одно правило:
+        <pre>
+        body {
+            background-color: blue;
+        }
+        </pre>
+    </li>
+    <li>Добавить в свою html-страницу строчку в голову:</li>
+    <pre>&lt;link rel="stylesheet" href="appearance.css"&gt;</pre>
+</ol>
+</body>
+</html>

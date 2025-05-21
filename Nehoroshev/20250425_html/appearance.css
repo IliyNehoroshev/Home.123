@@ -1,0 +1,23 @@
+table {
+    border: 3pc;
+    border-style: solid;
+    border-color: black;
+    width: 300px;
+    height: 300px;
+    border-style:double
+}
+td{border: 1pc;
+    border-style: solid;
+    border-color: red;
+    width: 3px;
+    height: 3px;
+    border-style: double
+
+}
+td {
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+    width: 10px;
+    height: 10px;
+}

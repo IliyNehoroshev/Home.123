@@ -1,0 +1,21 @@
+table {
+    border: 10px;
+    border-color: black;
+    width: 400px;
+    height: 400px;
+    border-style:groove;
+}
+td {
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+}
+.unknown {
+    background-color: rgb(213, 164, 157);
+}
+.known {
+    background-color: aquamarine;
+}
+#shirina {
+    color: blue;
+}

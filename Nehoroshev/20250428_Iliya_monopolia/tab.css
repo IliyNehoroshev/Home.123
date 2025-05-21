@@ -1,0 +1,12 @@
+table {
+    border-color:solid black;
+    border: 15px;
+    border-collapse: separate;
+    border-spacing: 5px 5px;
+    border-style:groove;
+    width: 700px;
+    height: 400px;
+}
+td {
+    border: 3px solid rgb(4, 47, 92);
+}
