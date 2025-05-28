@@ -5,16 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="scol2.css">
+            <title>
 </head>
 <body>
+    <title>Лыжы</title> <!-- лишний title, -->
+            </title>
+            <table>
                 <tr>
                     <img 
                     src='picturi.png' 
-                    alt='моя фотография'>
-                    </tr>
-                 <tr>
-                  <td> <h1>"Лыжные соревнования, 23 мая 2025"</h1></td>
-                 </tr>
+                    alt='моя фотография'> <!-- перед названием картинки должно стоять  img/--> <!-- чтобы фото встало вправее текста используйте тег <th>, также в css  можно задать размер картинки-->
+                </tr>
+                <tr>
+                    <td> <h1>"Лыжные соревнования, 23 мая 2025"</h1></td> <!-- заместо <h1>  можно писать id="название" и уже править в css-->
+                </tr>
                 <tr>
                     <td>Как вас зовут? </td>
                     <td><input placeholder="*Фамилие"></td>
@@ -23,7 +27,7 @@
                 <tr>
                     <td>Дистанция:</td>
                     <td><label for="female_b">"5км"</label>
-                        <input id="female_b" type="radio" name="gender">
+                        <input id="female_b" type="radio" name="gender"> <!-- пропустили открывающие и закрывающий теги <td> -->
                         <label for="male_b">"15км"</label>
                         <input type="radio" id="male_b" name="gender"></td>
                         <label for="male_a">"40км"</label>

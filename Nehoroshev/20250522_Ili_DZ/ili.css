@@ -1,0 +1,37 @@
+table{
+    border: 5px;
+    border-color: rgb(43, 58, 226);
+    border-style: inset;
+   width: 700px; 
+   height: 500px;
+}
+th{
+    width: 700px; 
+    height: 500px;   
+}
+td{
+    border: 5px;
+    border-color: rgb(7, 52, 92);
+    border-style: inset;
+}
+#header_img {
+    width: 700px;
+    height: 200px;
+}
+#tdh2{
+    color: rgb(7, 16, 136);
+    font-style: normal;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+#tdh3{
+    text-align: end;
+}
+#tdh4{
+    font-weight: bold;
+}
+#tdh5{
+    font-weight: bolder;
+    color: rgb(12, 12, 12);
+}
