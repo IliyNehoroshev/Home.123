@@ -48,7 +48,7 @@ let taim1 = dist / quantity1
 let quantity2 = 20; // скорость на авто 
 let taim2 = dist / quantity2 
 let taim3 = 19.30;  // время начало занятий
-let taima = taim3 - taim1
-let taimp = taim3 - taim2
-console.log(`Время пешком : `, taimp , ` часов.`);
-console.log(`Время на автомобиле : `, taima , ` часов.`);
+let taimp = taim3 - taim1
+let taima = taim3 - taim2
+console.log(`Время в которое надо выходить пешком : `, taimp , ` часов.`);
+console.log(`Время в которое надо выежать на автомобиле : `, taima , ` часов.`);
