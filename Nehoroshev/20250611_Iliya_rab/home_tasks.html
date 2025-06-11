@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="prism.css">
+    <script src="prism.js"></script>
+    <script src="script.js" defer> </script>
+    <title>Работа со страницей</title>
+</head>
+<body>
+    <h1>Содержание</h1>
+    <ol>
+        <li><a href="#elemwork">Работа с элементами</a></li>
+        <li><a href="#dtwork">Работа с датой и временем</a></li>
+        <li><a href="#inputwork">Работа с полями ввода</a></li>
+    </ol>
+    <h1><a name="elemwork">Работа с элементами</a></h1>
+    <ol>
+    <li>Для создания элемента вызываем
+        <pre><code class="language-JavaScript">
+        let ВАШЭЛЕМЕНТ = document.createElement('ЧТО СОЗДАЕМ')
+        </code></pre></li>
+    <li>Для прикрепления элемента вызываем 
+        <pre>
+            <code class="language-JavaScript">
+        КУДАПРИКРЕПЛЯЕМ.appendChild(ВАШЭЛЕМЕНТ)
+        </code></pre></li>
+    <li>Для изменения текста внутри элемента вызываем 
+        <pre>
+            <code class="language-JavaScript">
+            ВАШЭЛЕМЕНТ.textContent = 'Нужный текст'
+        </code></pre></li>
+    </ol>
+    <p>Пример создания двух абзацев: </p>
+    <pre>
+    <code class="language-JavaScript">
+        let p = document.createElement('p')
+        document.body.appendChild(p)
+        p.textContent = 'Текст вашего абзаца'
+        // Второй раз для переменной мы не пишем let!
+        // Переменную можно переиспользовать
+        p = document.createElement('p')
+        document.body.appendChild(p)
+        p.textContent = 'Текст другого абзаца'
+    </code>
+    </pre>
+    <p>Задание №1: Добавьте к вашим абзацам (p) по одному заголовку второго уровня (h2) с текстом в них "Заголовок 1", "Заголовок 2"</p>
+    <h2>Можно прикреплять один готовый элемент внутрь другого</h2>    
+    <pre>
+        <code class="language-JavaScript">
+        let ol = document.createElement('ol')
+        document.body.appendChild(ol)
+
+        let li = document.createElement('li')
+        ol.appendChild(li)
+        li.textContent = 'Текст элемента списка'
+
+        li = document.createElement('li')
+        ol.appendChild(li)
+        li.textContent = 'Текст второго элемента списка'
+        </code>
+    </pre>
+    <p>Задание №2: создайте НЕУПОРЯДОЧЕННЫЙ список, содержащий 2 элемента.</p>
+    <p>Задание №3 (повышенной сложности): создайте таблицу из одной строки и двух ячеек. Добавьте css, чтобы было видно края таблицы</p>
+    <h1><a name="dtwork">Работа с датой и временем</a></h1>
+    <p> Чтобы создать переменную с текущей датой и временем 
+        <pre><code class="language-JavaScript">
+     let dt = new Date()</code></pre>
+    <p>Чтобы прочитать отдельные составляющие даты и времени</p>
+     <pre>
+     <code class="language-JavaScript">
+console.log('Сейчас ' + dt.getFullYear() +  '  год')
+console.log('Сегодня ' + dt.getDate() + ', ' + dt.getMonth())
+console.log('Сейчас ' + dt.getHours() + ':' + dt.getMinutes() + ':' + dt.getSeconds())
+</code></pre>
+<p>Задание №4: Создайте пустую страницу. На ней динамически разместите заголовок "Сегодняшняя дата" и текст в абзаце "2025, 5, 11" (числа надо брать из даты и времени!!!)</p>
+    <h1><a name="inputwork">Работа с полями ввода</a></h1>
+</body>
+</html>
