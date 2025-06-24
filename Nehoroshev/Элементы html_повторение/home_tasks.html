@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="prism.css">
+    <script src="prism.js"></script>
+    <title>Работа со страницей</title>
+</head>
+<body>
+    <h1>Содержание</h1>
+    <ol>
+        <li><a href="#elemwork">Работа с элементами</a></li>
+        <li><a href="#dtwork">Работа с датой и временем</a></li>
+        <li><a href="#inputwork">Работа с полями ввода</a></li>
+    </ol>
+    <h1><a name="elemwork">Работа с элементами</a></h1>
+    <ol>
+    <li>Для создания элемента вызываем
+        <pre><code class="language-JavaScript">
+        let ВАШЭЛЕМЕНТ = document.createElement('ЧТО СОЗДАЕМ')
+        </code></pre></li>
+    <li>Для прикрепления элемента вызываем 
+        <pre>
+            <code class="language-JavaScript">
+        КУДАПРИКРЕПЛЯЕМ.appendChild(ВАШЭЛЕМЕНТ)
+        </code></pre></li>
+    <li>Для изменения текста внутри элемента вызываем 
+        <pre>
+            <code class="language-JavaScript">
+            ВАШЭЛЕМЕНТ.textContent = 'Нужный текст'
+            </code>
+        </pre>
+    </li>
+    <li><p>Пример создания двух абзацев: </p>
+    <pre>
+    <code class="language-JavaScript">
+        let p = document.createElement('p')
+        document.body.appendChild(p)
+        p.textContent = 'Текст вашего абзаца'
+        // Второй раз для переменной мы не пишем let!
+        // Переменную можно переиспользовать
+        p = document.createElement('p')
+        document.body.appendChild(p)
+        p.textContent = 'Текст другого абзаца'
+    </code>
+    </pre>
+    </li>
+<li> <p>Задание №1: Добавьте к вашим абзацам (p) по одному заголовку второго уровня (h2) с текстом в них "Заголовок 1", "Заголовок 2"</p>
+    </li>
+<li> <p>Для поиска элемента проще всего задать ему id в html, тогда он в JS будет виден по id как переменная</p>
+    <p>page.html</p>
+        <code class="language-html">
+        <textarea  readonly rows="4" style="background:none; border:none; resize:none; outline:none; width:100%;white-space:pre-wrap">
+            <html>
+                <head>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                <input id="first_name" value="Вася">
+                </body>
+            </html>
+        </textarea>
+        </code>
+    <p>script.js</p>
+        <pre>
+            <code class="language-JavaScript">
+                console.log(first_name.value)
+            </code>
+        </pre>
+    </li>
+    </ol>
+    
+    <h2>Можно прикреплять один готовый элемент внутрь другого</h2>    
+    <pre>
+        <code class="language-JavaScript">
+        let ol = document.createElement('ol')
+        document.body.appendChild(ol)
+
+        let li = document.createElement('li')
+        ol.appendChild(li)
+        li.textContent = 'Текст элемента списка'
+
+        li = document.createElement('li')
+        ol.appendChild(li)
+        li.textContent = 'Текст второго элемента списка'
+        </code>
+    </pre>
+    <p>Задание №2: создайте НЕУПОРЯДОЧЕННЫЙ список, содержащий 2 элемента.</p>
+    <p>Задание №3 (повышенной сложности): создайте таблицу из одной строки и двух ячеек. Добавьте css, чтобы было видно края таблицы</p>
+    <h1><a name="dtwork">Работа с датой и временем</a></h1>
+    <ol>
+    <li>
+    <p> Чтобы создать переменную с текущей датой и временем </p>
+        <pre><code class="language-JavaScript">
+     let dt = new Date()</code></pre>
+        </li>
+    <li>
+    <p> Чтобы создать переменную с НУЖНОЙ ВАМ датой </p>
+        <pre><code class="language-JavaScript">
+     let mydt = new Date(1986, 5, 6)  // месяцы нумеруются с нуля, дни с единицы!</code></pre>
+        </li>
+    <li>
+    <p> Чтобы создать переменную с НУЖНОЙ ВАМ датой и временем </p>
+        <pre><code class="language-JavaScript">
+     let mydt = new Date(1986, 5, 6, 17, 45)  // следом за днём идут часы и минуты</code></pre>
+        </li>
+    <li>
+    <p>Чтобы прочитать отдельные составляющие даты и времени</p>
+    <pre>
+    <code class="language-JavaScript">
+    console.log('Сейчас ' + dt.getFullYear() +  '  год')
+    console.log('Сегодня ' + dt.getDate() + ', ' + dt.getMonth())
+    console.log('Сейчас ' + dt.getHours() + ':' + dt.getMinutes() + ':' + dt.getSeconds())
+    </code></pre>
+    </li><li>
+<p>Задание №4: Создайте пустую страницу. На ней динамически разместите заголовок "Сегодняшняя дата" и текст в абзаце "2025, 5, 11" (числа надо брать из даты и времени!!!)</p>
+    </li><li>
+<p>Задание №5: Создайте пустую страницу. На ней динамически разместите заголовок "День моего рождения" и текст в абзаце с вашим ДР. Предварительно надо создать переменную</p>
+    </li>
+</ol>
+    <h1><a name="inputwork">Работа с полями ввода</a></h1>
+    <ol>
+        <li>
+        <p>Чтобы работать с полями ввода для начала можно добавить их в код html</p>
+        <code class="language-html">
+        <textarea  readonly rows="4" style="background:none; border:none; resize:none; outline:none; width:100%;white-space:pre-wrap">
+            <html>
+                <head>
+                    <script src="script.js" defer></script>
+                </head>
+                <body>
+                <input id="first_name" value="Вася">
+                <input id="age" type="number" value="25">
+                </body>
+            </html>
+        </textarea>
+        </code>
+    </li>
+    <li>
+        <p>...найти по id и прочитать значения.</p>
+        <pre>
+            <code class="language-JavaScript">
+                console.log(first_name.value)
+                console.log(age.valueAsNumber)
+            </code>
+        </pre>
+        <p>Обратите внимание! Значение любого поля ввода (input) возвращается текстом (строкой). Для работы с числами надо использовать не только type="number" в html, но и valueAsNumber в JS</p>
+    </li>
+    <li>
+        <p>Чтобы записать значение в поле ввода, используйте присваивание ТОЛЬКО к value (он сам преобразует, как надо)</p>
+        <pre>
+            <code class="language-JavaScript">
+                first_name.value = 'Петя'
+                age.value = 48
+            </code>
+        </pre>
+    </li>
+    <li>
+        <p>Для работы с кнопкой нужно написать функцию в JavaScript </p>
+        <pre>
+            <code class="language-JavaScript">
+                function funcName() {
+                    console.log("Нажали на кнопочку!")
+                }
+            </code>
+        </pre>    
+    </li>
+    <li>
+        <p>В html к кнопочке функцию надо привязать</p>
+        <code class="language-html">
+        <textarea  readonly rows="4" style="background:none; border:none; resize:none; outline:none; width:100%;white-space:pre-wrap">
+            <input type="button" onclick="funcName()" value="Нажми меня">
+        </textarea>
+        </code>
+    </li>
+    <li>
+        Задание №6: создайте свою страницу с полем ввода и атрибутами id="price", value="70". Выведите в консоль его значение  
+    </li>
+    <li>
+        Задание №7: создайте страницу с кнопкой, на которой написано "как дела?". Выведите в консоль "Хорошо" при нажатии на кнопку  
+    </li>
+    <li>
+        Задание №8: создайте страницу с кнопкой, на которой написано "что ещё?". На странице должна динамически появиться надпись "Двойной бигмак и колу!". Для того создайте функцию, привяжите её к кнопке и динамически создайте внутри тела функции абзац с нужной надписью и прикрепите его к телу документа
+    </li>
+    <li>
+        Задание №9: создайте страницу с кнопкой, на которой написано "что ещё?" и поле ввода. Вы вводите заказ в поле ввода. На странице должна динамически появиться надпись с содержанием заказа. Динамически создайте внутри тела функции абзац с надписью, взятой из value вашего поля ввода. Не забудьте прикрепить
+    </li>
+    <li>
+        Задание №10: создайте свою страницу с полем ввода и кнопкой (html). Укажите в поле ввода год рождения. По нажатии на кнопку на странице должен появиться абзац "Ваш возраст: 25", где возраст вычисляется в зависимости от года. Я понимаю, что без дня и месяца возраст может отличаться, потому что тем людям, у которых ещё не было дня рождения, ещё не исполнилось то количество лет, которое наступит в етом году. Для решения задачи потребуется указать у поля ввода type="number" а значение брать valueAsNumber
+    </li>
+    <li>
+        Задание №11: создайте свою страницу с тремя полями ввода и кнопкой (html). В первых двух полях заранее указаны значения 7 и 5. Вы вводите в третье поле сумму. По нажатии на кнопку на странице должна появиться надпись true или false в зависимости от того, верно ли вы посчитали сумму. Используйте сравнение на равенство == для сравнения и valueAsNumber для получения значений из полей ввода. Какого типа поля ввода должны быть?
+    </li>
+    <li>
+    </li>
+    <li>
+    </li>
+</ol>
+</body>
+</html>
