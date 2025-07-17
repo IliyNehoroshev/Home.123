@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="prism.js" defer></script>
+    <link rel="stylesheet" href="prism.css">
+    <script src="script.js" defer></script>
+    <title>Классы</title>
+</head>
+<body>
+    <h1>Классы</h1>
+    <h2>Способ создания типа данных</h2>
+<p>Класс - это способ создания нового типа данных.
+    Подобно, напрмер, уже созданному до нас Date.</p>
+<p><b>Задача:</b> создать несколько переменных, хранящих информацию о людях.</p>
+    <pre>
+    <code class="language-JavaScript">
+        let man = {
+            'firstname': 'Вася',
+            'age': 35
+        }
+        let girl = {
+            'firstname': 'Ася',
+            'age': 32
+        }
+        let boy = {
+            'firstname': 'Дима',
+            'age': 5
+        }
+    </code>
+    </pre>        
+<h2>Синтаксис</h2>
+<ol>
+    <li>Ключевое слово <b>class</b></li>
+    <li>Название - <s>традиционно</s> всегда с большой буквы</li>
+    <li>В фигурных скобках - свойства класса - <b>поля</b> и <b>методы</b></li>
+    <li>Поле - переменная в классе.</li>
+    <li>Метод - функция в классе <b>без ключевого слова function</b>.</li>
+    <li>Конструктор (называется constructor) - метод для создания и инициализации класса. <b>Единственный вызывается по имени класса.</b></li>
+</ol>
+<pre>
+    <code class="language-JavaScript">
+class Human {
+    firstname                   // поле
+    birthday                    // поле
+    constructor(newname, dt) {  // метод
+        this.firstname = newname  // 'Вася'
+        this.birthday = dt        // new Date(2000, 5, 2)
+    }
+}
+
+let man = new Human('Вася', new Date(1990, 2, 4))
+let girl = new Human('Ася', new Date(1993, 6, 4))
+let boy = new Human('Дима', new Date(2019, 10, 18))
+    </code>
+    </pre>   
+<p>Теперь можно создавать объект класса, а присваиванием занимается его метод-конструктор. Но имя и дату рождения можно "испоритить" извне:</p>
+<pre>
+    <code class="language-JavaScript">
+class Human {
+    firstname                   // поле
+    birthday                    // поле
+    constructor(newname, dt) {  // метод
+        this.firstname = newname  // 'Вася'
+        this.birthday = dt        // new Date(2000, 5, 2)
+    }
+}
+
+let man = new Human('Вася', new Date(1990, 2, 4))
+let girl = new Human('Ася', new Date(1993, 6, 4))
+let boy = new Human('Дима', new Date(2019, 10, 18))
+girl.firstname = 'Миша'
+console.log(girl.firstname)
+    </code>
+    </pre> 
+<p>Решение: поле сделать приватным и создать метод-геттер:</p>
+<pre>
+    <code class="language-JavaScript">
+class Human {
+    #firstname                  // приватное поле
+    birthday                    // поле
+    constructor(newname, dt) {  // метод
+        this.firstname = newname  // 'Вася'
+        this.birthday = dt        // new Date(2000, 5, 2)
+    }
+    get name() {
+        return this.#firstname
+    }
+}
+
+let man = new Human('Вася', new Date(1990, 2, 4))
+let girl = new Human('Ася', new Date(1993, 6, 4))
+let boy = new Human('Дима', new Date(2019, 10, 18))
+// girl.#firstname = 'Миша' - ошибка, нельзя записывать и читать приватное поле
+console.log(girl.name)  // обращение к методу getter - без круглых скобок!
+    </code>
+    </pre> 
+    <h1>Домашнее задание</h1>
+    <ol>
+        <li>Написать getter для получения возраста <span onclick="show_hide('t1')">Ответ</span>
+        <pre id="t1" style="display:none">
+        <code class="language-JavaScript">
+    get age() {  // поля "возраст" не будет - только getter
+        let dt_now = new Date()
+        let age_now = dt_now.getFullYear() - this.#birthday.getFullYear()
+        // Если ДР ещё не наступил, вычитаем год
+        if (dt_now.getMonth() < this.#birthday.getMonth() || dt_now.getMonth() == this.#birthday.getMonth() && dt_now.getDate() < this.#birthday.getDate()) {
+            return age_now - 1
+        }
+        return age_now
+    }
+        </code>
+        </pre>        
+        </li>
+        <li>Написать getter для ответа на вопрос, является ли человек взрослым</li>
+        <li>Написать класс Машина с конструктором и двумя полями: марка и количество колес.
+            Марка должна быть только на чтение, а сеттер количества колес не должен давать
+            присвоить меньше 4 колес, больше 20 и нечетное число.
+    <pre>
+    <span onclick="show_hide('t3')">Ответ</span>
+        <pre id="t3" style="display:none">
+        <code class="language-JavaScript">
+        
+        </code>
+        </pre>        
+    </li>
+</ol>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="prism.js" defer></script>
+    <link rel="stylesheet" href="prism.css">
+    <script src="script.js" defer></script>
+    <title>Функции</title>
+</head>
+<body>
+    <h1>Функции</h1>
+<h2>Вы уже встречали функции:</h2>
+print() // вызов печати на принтер
+console.log()  // вывод в консоль
+<h2>Теоретический блок:</h2>
+<ol>
+    <li> Ключевое слово function</li>
+    <li> Название (с теми же ограничениями, что и название переменной: буквы, цифры, подчеркивания, начинается с буквы!)</li>
+    <li> Круглые скобки, в которых можно через запятую перечислить названия будущих аргументов == "формальных параметров"</li>
+    <li> Блок кода, он же тело функции, в нем можно использовать формальные параметры, НЕ ЗНАЯ ЗАРАНЕЕ, чему они равны</li>
+    <li> Оператор возврата - ключевое слово return за которым следует возвращаемое значение</li>
+    <li> Функция имеет право вызывать в своем теле другие функции. В том числе - себя (рекурсия). Если две и более функций вызывают друг друга - это кольцевая рекурсия</li>
+</ol>
+<p> Существует теорема, согласно которой любую рекурсивную функцию можно переписать без рекурсии циклами. Стек придется реализовывать самому</p>
+<h3>Пример функции без возврата и без параметров.</h3>
+<p>Она привязана к кнопке на странице
+    <input
+        type="button"
+        onclick="hello()"
+        value="Привет?"
+        > Ctrl+Shift+J, чтобы увидеть результат в консоли
+    </p>
+    <pre>
+    <code class="language-JavaScript">
+    function hello() {
+        console.log('Привет!')
+    }
+    </code>
+    </pre>
+
+<h3>Описание функции сложения трех чисел</h3>
+    <pre>
+    <code class="language-JavaScript">
+    function sum3(a, b, c) {  // Сигнатура (подпись) функции: название и аргументы
+        return a + b + c
+    }
+
+    // Вызов функции сложения трех чисел
+    let mys = sum3(5, 7, 10)
+    // аргументы передаются в том порядке, в котором они записаны: т.е. 5 попадет в a, 7 в b, 10 в c
+    console.log('Если сложить 5, 7 и 10 будет ', mys)
+    </code>
+    </pre>
+<h2 onclick="show_hide('t1')">Задание 1: Наименьшее из трёх зол</h2>
+<p>напишите функцию, выбирающую наименьшее из трёх чисел, используя только ветвление. Нажмите на название задания, чтобы показать ответ.</p>
+<table id="t1" style="display:none"><tr><td>
+    Правильное решение
+    <pre>
+    <code class="language-JavaScript">
+    function min3(a, b, c) {
+        if (a > b) {  // a уже не будет наименьшим! Сравним b, c
+            if (b > c) {  // c меньше b, которое меньше a
+                return c
+            } else {      // b меньше с и меньше a
+                return b
+            }
+        } else {  // а меньше
+            if (c > a) {
+                return a
+            } else {
+                return c
+            }
+        }
+    }
+    console.log('Из 4,2,9 наименьшее это: ', min3(4, 2, 9))
+    </code>
+    </pre>
+    </td><td>
+        <img src="best.jpg">
+    </td><td>
+        Неправильное решение
+    <pre>
+    <code class="language-JavaScript">
+    function min3(a,b,c) {
+        // Ошибка №1: что бы вы ни передали в функцию, она заменит на 1, 12, 5
+        a = 1  
+        b = 12
+        c = 5
+
+        // Ошибка №2: 6 сравнений. Неоптимально. Можно два!
+        if (a&lt;b &amp;&amp; a&lt;c){
+            console.log('Минимальное число а ', a, 'Проверка 1')
+        } else if (b&lt;a && b&lt;c) {
+            console.log('Минимальное число b ', b, 'Проверка 2')
+        } else if (c&lt;a && c&lt;b) { // Как минимум, если первые два неверны, можно смело писать, что тогда минимальное с
+            console.log('Минимальное число c ', c, 'Проверка 3')
+        }
+        // Ошибка №3: функция ничего не возвращает, а только пишет в консоль.
+    }
+    console.log('Из 4,2,9 наименьшее это: ', min3(4, 2, 9))
+    // В результате такой тест не работает
+    </code>
+    </pre>
+    </td></tr></table>
+<h3>Все аргументы</h3>
+<p>У функции есть "скрытый" аргумент <b>arguments</b>. 
+Он содержит все аргументы, которые переданы функции,
+даже если им не даны имена в сигнатуре. В JavaScript
+ можно передавать в функцию сколько угодно аргументов,
+это не ошибка. Всем недостающим будет назначено значение undefined</p>
+
+    <pre>
+    <code class="language-JavaScript">
+    function look_at_my_args(a, b) {
+        console.log('a = ', a)
+        console.log('b = ', b)
+        console.log('Все переданное: ', arguments)
+    }
+    look_at_my_args(1)
+    look_at_my_args(1, 2)
+    look_at_my_args(1, 2, 3)
+    </code>
+    </pre>
+<h2 onclick="show_hide('t2')">Задание 2: Наименьшее из всех зол</h2>
+<p>напишите функцию, выбирающую наименьшее из всех переданных фунцкии чисел, используя только ветвление и цикл. Нажмите на название задания, чтобы показать ответ.</p>
+    <pre id="t2" style="display:none">
+    <code class="language-JavaScript">
+    function itermin() {
+        if (arguments.length) {
+            let result = arguments[0]
+            for (let elem of arguments) {
+                if (elem < result) {
+                    result = elem
+                }
+            }
+            return result
+        }        
+    }
+    console.log(itermin(2, 7, 4, 1, 9, 3, 5))
+    </code>
+    </pre>
+    <h1>Домашнее задание</h1>
+    <ol start="3">
+        <li>Написать функцию, которая пишет "Привет, имя!" имя должно быть параметром (ЗДЕСЬ НУЖНО console.log, ДАЛЕЕ НЕЛЬЗЯ!!!) <span onclick="show_hide('t3')">Ответ</span>
+        <pre id="t3" style="display:none">
+        <code class="language-JavaScript">
+            function hello(name) {
+                console.log('Привет,', name, '!')
+            }
+        </code>
+        </pre>        
+        </li>
+        <li> Написать функцию issum, которая проверяет, является ли третий аргумент суммой двух первых. Возвращать должна true или false. 
+Пример:
+    <pre>
+    <code class="language-JavaScript">
+    function issum(ВАШИ ПАРАМЕТРЫ) {
+        return ВАШ КОД
+    }
+    console.log(issum(1, 2, 3)) // true
+    console.log(issum(1, 2, 5)) // false
+    </code>
+    </pre>
+    <span onclick="show_hide('t4')">Ответ</span>
+        <pre id="t4" style="display:none">
+        <code class="language-JavaScript">
+        function issum(a, b, c) {
+            return a + b == c
+        }
+        console.log(issum(1, 2, 3)) // true
+        console.log(issum(1, 2, 5)) // false
+        </code>
+        </pre>        
+</li>
+<li> Написать функцию, которая сравнивает, равны ли два массива поэлементно
+    <pre>
+    <code class="language-JavaScript">
+    function equal(ВАШИ ПАРАМЕТРЫ) {
+        ВАШ КОД
+        return ВАШ ВОЗВРАТ
+    }
+    console.log(equal([1, 2, 3], [1, 2, 3])) // true
+    console.log(equal([1, 2], [1, 2, 3])) // false
+    console.log(equal([11, 22, 33], [0, 2, 3])) // false
+    </code>
+    </pre>
+    <span onclick="show_hide('t5')">Ответ</span>
+        <pre id="t5" style="display:none">
+        <code class="language-JavaScript">
+        function issum(arr1, arr2) {
+            if (arr1.length != arr2.length)
+                return false
+            for(let i = 0; i &lt; arr1.length; i++) {
+                if (arr1[i] != arr2[i])
+                    return false
+            }
+            return true
+        }
+        console.log(equal([1, 2, 3], [1, 2, 3])) // true
+        console.log(equal([1, 2], [1, 2, 3])) // false
+        console.log(equal([11, 22, 33], [0, 2, 3])) // false
+        </code>
+        </pre>        
+    </li>
+    <li>Написать функцию, которая<span id="bubuh">  удаляет со страницы элементс с заданным id. Продемонстрировать её работу на странице    <span onclick="show_hide('t6')">Ответ</span>
+        <div id="t6" style="display:none">
+        <pre>
+        <code class="language-JavaScript">
+        function del(id) {
+            document.getElementById(id).remove()
+        }
+        </code>
+        </pre>
+        <pre>
+        <code class="language-HTML">
+        &lt;input type="button" onclick="del('bubuh')" value="Стереть!"&gt;
+        </code>
+        </pre>
+        <input type="button" onclick="bubuh.remove()" value="Стереть!">
+        </div> 
+        </span>
+    </li>
+    <li> Написать функцию, которая получает число N и создает на странице N кнопок, подписанных от 1 до N
+    <span onclick="show_hide('t7')">Ответ</span>
+    <b>Не забудьте про defer!</b>
+        <pre id="t7" style="display:none">
+        <code class="language-JavaScript">
+        function buttons(N) {
+            for (let i = 0; i &lt; N; i++) {
+                let btn = document.createElement('input')
+                btn.setAttribute('type', 'button')
+                btn.value = i + 1
+                document.body.appendChild(btn)
+            }
+        }
+        buttons(150)
+        </code>
+        </pre> </li>
+    <li> Написать функцию, которая добавляет в таблицу строку из 4 ячеек: название, цена, количество, сумма. Значения для ячеек должны быть параметрами функции
+            <span onclick="show_hide('t8')">Ответ</span>
+    <b>Не забудьте про defer! Таблицу создайте заранее</b>
+        <pre id="t8" style="display:none">
+        <code class="language-JavaScript">
+        function cart(goodname, price, quantity, sum) {
+            let tr = document.createElement('tr')
+            let td
+            for (let a of arguments) {
+                td = document.createElement('td')
+                td.textContent = a
+                tr.appendChild(td)
+            }
+            tbl.appendChild(tr)
+        }
+        cart('яблоки', 12, 3, 36)
+        cart('груши', 3, 5, 15)
+        cart('сливы', 6, 7, 42)
+        </code>
+        </pre> </li>
+    </ol>
+<h2>Экзотика</h2>
+<pre>
+// "Старый" способ создания класса, конструктора и объекта:
+
+function something () {
+    this.a = 9
+}
+
+// {a: 9}
+
+// Можно создать объект
+let s = new something()
+console.log(s.a)
+</pre>
+<table id="tbl"></table>
+</body>
+</html>
