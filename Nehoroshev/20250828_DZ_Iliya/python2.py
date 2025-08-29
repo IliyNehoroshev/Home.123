@@ -6,15 +6,12 @@
 #"Не подскажете, как вас по отчеству?"
 
 name = input("Введите ваше имя: ")
-birth_year = int(input("Введите год вашего рождения цифрами: "))
+year = int(input("Введите год вашего рождения цифрами: "))
 current_year = 2025 
-age = current_year - birth_year
-year_min = current_year - age 
-year_max = current_year - age
-
-if year_min < 10:
+age = current_year - year
+if age < 10:
     print(f"Привет, {name}!")
 elif 10 <= age <= 20:
-    print(f"Здравствуйте, {name}!")
+ print(f"Здравствуйте, {name}!")
 else:
-    print(f"Не подскажете, как вас по отчеству?")
+ print(f"Не подскажете, как вас по отчеству?")
